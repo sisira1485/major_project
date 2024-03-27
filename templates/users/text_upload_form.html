@@ -1,0 +1,96 @@
+{% extends 'users/userbase.html' %}
+{% block contents %}
+
+<h3 align='center'>Fill the details</h3>
+
+<section id="intro">
+    <div class="intro-text">
+        <div class="container" style="margin-top: -200px;">
+            <h2 align="center">Upload an text</h2><br><br><br><br>
+            <form action="{% url 'UploadTextAction' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <!-- Input fields for various attributes -->
+                    <label for="General_Health">General Health:</label>
+                    <input type="text" id="General_Health" name="General_Health" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="Checkup">Checkup:</label>
+                    <input type="text" id="Checkup" name="Checkup" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="Exercise">Exercise:</label>
+                  <input type="text" id="Exercise" name="Exercise" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="Skin_Cancer">Skin Cancer:</label>
+                <input type="text" id="Skin_Cancer" name="Skin_Cancer" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="Other_Cancer">Other Cancer:</label>
+                <input type="text" id="Other_Cancer" name="Other_Cancer" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="Depression">Depression:</label>
+                <input type="text" id="Depression" name="Depression" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="Diabetes">Diabetes:</label>
+              <input type="text" id="Diabetes" name="Diabetes" class="form-control" required>
+          </div>
+          <div class="form-group">
+              <label for="Arthritis">Arthritis:</label>
+              <input type="text" id="Arthritis" name="Arthritis" class="form-control" required>
+          </div>
+          <div class="form-group">
+              <label for="Sex">Sex:</label>
+              <input type="text" id="Sex" name="Sex" class="form-control" required>
+          </div>
+          <div class="form-group">
+              <label for="Age_Category">Age Category:</label>
+              <input type="text" id="Age_Category" name="Age_Category" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="Height_cm">Height (cm):</label>
+            <input type="text" id="Height_cm" name="Height_cm" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="Weight_kg">Weight (kg):</label>
+            <input type="text" id="Weight_kg" name="Weight_kg" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="BMI">BMI:</label>
+            <input type="text" id="BMI" name="BMI" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="Smoking_History">Smoking History:</label>
+            <input type="text" id="Smoking_History" name="Smoking_History" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="Alcohol_Consumption">Alcohol Consumption:</label>
+            <input type="text" id="Alcohol_Consumption" name="Alcohol_Consumption" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="Fruit_Consumption">Fruit Consumption:</label>
+            <input type="text" id="Fruit_Consumption" name="Fruit_Consumption" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="Green_Vegetables_Consumption">Green Vegetables Consumption:</label>
+            <input type="text" id="Green_Vegetables_Consumption" name="Green_Vegetables_Consumption" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="FriedPotato_Consumption">Fried Potato Consumption:</label>
+            <input type="text" id="FriedPotato_Consumption" name="FriedPotato_Consumption" class="form-control" required>
+        </div> 
+                <div class="form-group">
+                    <button type="submit" class="btn-get-started scrollto">Submit</button>
+                </div>
+            </form>
+            {% if prediction %}
+            <!-- Display prediction result if available -->
+            <h4 style="color: rgb(54, 166, 129);">Prediction Result: {{ prediction }}</h4>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>CVD Project - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Medicio
+  * Updated: Jan 29 2024 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/medicio-free-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <style>
+  #header {
+    padding: 15px 0; /* Increase top and bottom padding */
+  }
+
+  .logo img {
+    width: 200px; /* Increase logo width */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .navbar ul {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+  }
+
+  .navbar ul li {
+    list-style: none; /* Remove default list style */
+    margin-right: 15px; /* Add margin between navigation items */
+  }
+
+  .navbar ul li:last-child {
+    margin-right: 0; /* Remove margin from the last navigation item */
+  }
+
+  .navbar ul li a {
+    font-size: 14px; /* Adjust font size of navigation links */
+    padding: 8px 12px; /* Adjust padding of navigation links */
+  }
+
+</style>
+</head>
+<!-- Top Bar -->
+<div id="topbar" class="d-flex align-items-center fixed-top">
+  <div class="container">
+      <div class="align-items-center">
+          <span>CardioVascularDisease Prediction Project</span>
+      </div>
+  </div>
+</div>
+
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <a href="index.html" class="logo me-auto"><img src="{% static 'img/logo.jpg' %}" alt=""></a>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <h1 class="logo me-auto"><a href="index.html">Medicio</a></h1> -->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto " href="{% url 'AdminHome' %}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'ViewRegisteredUsers' %}">Registered Users</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url('{% static 'img/slide/slide-7.jpg' %}'); background-size: cover; background-repeat: no-repeat; background-position:center;">
+          <div class="container">
+            <h2>Welcome to <span>CVD Project</span></h2>
+            <p>Our project focuses on cardiovascular diseases (CVDs), which are a group of disorders related to the heart and blood vessels. We aim to develop innovative solutions for early detection, prevention, and management of CVDs through advanced technologies and research. Join us in our mission to promote heart health and reduce the burden of CVDs globally.</p>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item" style="background-image: url('{% static 'img/slide/slide-9.jpg' %}'); background-size: cover; background-repeat: no-repeat; background-position:center;">
+          <div class="container">
+            <h2>Preventing Cardiovascular Diseases (CVDs)</h2>
+            <p>Cardiovascular diseases (CVDs) are a leading cause of mortality worldwide, but many cases are preventable through healthy lifestyle choices and medical interventions. Regular physical activity, a balanced diet rich in fruits and vegetables, and avoiding tobacco use are essential in reducing the risk of developing CVDs. Additionally, managing risk factors such as hypertension, diabetes, and high cholesterol levels through medication and lifestyle modifications can significantly lower the likelihood of experiencing CVD-related complications. By adopting a heart-healthy lifestyle and staying proactive about cardiovascular health, individuals can safeguard themselves against CVDs and lead longer, healthier lives.</p>
+          </div>
+        </div>
+        
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+  </section><!-- End Hero -->
+
+  {% block contents %}
+  {% endblock %}
+
+  <main id="main">
+
+    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="fas fa-heartbeat"></i></div>
+              <h4 class="title"><a href="">Healthy Diet</a></h4>
+              <p class="description">A balanced diet rich in fruits, vegetables, whole grains, lean proteins, and healthy fats can significantly reduce the risk of cardiovascular diseases (CVDs). Consuming nutrient-dense foods while limiting processed foods, sugary beverages, and excessive salt intake promotes heart health and overall well-being.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon"><i class="fas fa-pills"></i></div>
+              <h4 class="title"><a href="">Regular Exercise</a></h4>
+              <p class="description">Physical activity is essential for maintaining cardiovascular health and reducing the risk of CVDs. Engaging in regular exercise, such as brisk walking, jogging, swimming, or cycling, strengthens the heart muscle, improves circulation, and helps control weight and blood pressure.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon"><i class="fas fa-thermometer"></i></div>
+              <h4 class="title"><a href="">Stress Management</a></h4>
+              <p class="description">Chronic stress can contribute to the development of cardiovascular diseases (CVDs) by increasing blood pressure, cholesterol levels, and promoting unhealthy coping behaviors such as smoking or overeating. Practicing stress-reduction techniques such as meditation, deep breathing, yoga, or spending time in nature can improve heart health and overall quality of life.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+              <div class="icon"><i class="fas fa-dna"></i></div>
+              <h4 class="title"><a href="">Regular Health Checkups</a></h4>
+              <p class="description">Regular health checkups and screenings are essential for early detection and prevention of cardiovascular diseases (CVDs). Monitoring blood pressure, cholesterol levels, blood sugar, and other risk factors helps identify potential heart problems early, allowing for timely intervention and management.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Featured Services Section -->
+</main>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    
+
+    <div class="container">
+      {% comment %} <div class="copyright">
+        &copy; Copyright <strong><span>CVD</span></strong>. All Rights Reserved
+      </div> {% endcomment %}
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/medicio-free-bootstrap-theme/ -->
+        Designed by <a href="https://bootstrapmade.com/">CMRCET BATCH 61</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
