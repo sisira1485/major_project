@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>CVD Prediction System</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f8f9fa; /* Light gray background color */
+    }
+    /* Custom CSS for article cards */
+    .card {
+      border: none;
+      background-color: #f8f9fa; /* Light gray background */
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px); /* Hover effect - move up slightly */
+    }
+    .card img {
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      max-height: 200px; /* Adjust image height */
+      object-fit: cover;
+    }
+    .card-body {
+      padding: 20px;
+    }
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333; /* Dark text color */
+    }
+    .card-text {
+      color: #666; /* Medium text color */
+    }
+    .read-more-btn {
+      background-color: #007bff; /* Blue button color */
+      border-color: #007bff;
+    }
+    .read-more-btn:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+    .show-more-btn {
+      background-color: #28a745; /* Green button color */
+      border-color: #28a745;
+      color: #fff; /* White text color */
+      font-weight: bold;
+    }
+    .show-more-btn:hover {
+      background-color: #218838; /* Darker green on hover */
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      color: #333; /* Dark text color */
+    }
+    /* Adjust spacing */
+    #articles {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    .additional-content {
+      margin-top: 20px; /* Add margin above additional content */
+    }
+
+    .mt-4 {
+      margin-top: 1.5rem; /* Add margin to the top of useful links */
+    }
+
+    .mt-4 h3 {
+      margin-bottom: 1rem; /* Add margin below useful links heading */
+    }
+
+    ul {
+      list-style-type: none; /* Remove bullet points from useful links */
+      padding-left: 0; /* Remove left padding from useful links */
+    }
+
+    ul li {
+      margin-bottom: 10px; /* Add margin between each useful link */
+    }
+
+    ul li a {
+      color: #007bff; /* Blue color for useful links */
+      text-decoration: none; /* Remove underline from useful links */
+    }
+
+    ul li a:hover {
+      color: #0056b3; /* Darker blue color on hover */
+    }
+   /* Style for news images */
+.news-img {
+  width: 100%; /* Ensure the image fills its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Add rounded corners */
+  margin-bottom: 15px; /* Add spacing between news items */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+}
+
+/* Style for news items */
+.news-item {
+  background-color: #ffffff; /* White background for news items */
+  padding: 20px; /* Add padding around news items */
+  border-radius: 15px; /* Add rounded corners */
+  transition: transform 0.3s ease; /* Add transition effect */
+}
+
+/* Hover effect for news items */
+.news-item:hover {
+  transform: translateY(-5px); /* Move up slightly on hover */
+}
+/* Resource Library Section */
+.resource-library {
+  padding: 80px 0; /* Adjust padding as needed */
+}
+
+.section-title h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #333; /* Dark text color */
+}
+
+.resource-item {
+  margin-bottom: 30px; /* Add margin between resource items */
+}
+
+.resource-item img {
+  border-radius: 50%; /* Make the images circular */
+  max-width: 100%;
+  height: auto;
+}
+
+.resource-item h3 {
+  margin-top: 20px; /* Add margin above heading */
+  font-size: 1.5rem;
+  color: #333; /* Dark text color */
+}
+
+.resource-item p {
+  color: #666; /* Medium text color */
+}
+
+.resource-item a.btn-primary {
+  background-color: #007bff; /* Blue button color */
+  border-color: #007bff;
+  color: #fff; /* White text color */
+  transition: background-color 0.3s ease;
+}
+
+.resource-item a.btn-primary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+#header {
+      padding: 15px 0; /* Increase top and bottom padding */
+    }
+
+    .logo img {
+      width: 200px; /* Increase logo width */
+      height: auto; /* Maintain aspect ratio */
+    }
+
+    .navbar ul {
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
+    }
+
+    .navbar ul li {
+      list-style: none; /* Remove default list style */
+      margin-right: 15px; /* Add margin between navigation items */
+    }
+
+    .navbar ul li:last-child {
+      margin-right: 0; /* Remove margin from the last navigation item */
+    }
+
+    .navbar ul li a {
+      font-size: 14px; /* Adjust font size of navigation links */
+      padding: 8px 12px; /* Adjust padding of navigation links */
+    }
+
+  </style>
+
+</head>
+
+<body>
+<!-- ======= Top Bar ======= -->
+<div id="topbar" class="d-flex align-items-center fixed-top">
+  <div class="container">
+    <!-- Project Title -->
+    <div class="align-items-center">
+      <span>CardioVascularDisease Prediction Project</span>
+    </div>
+  </div>
+</div>
+
+  <header id="header" class="fixed-top">
+  <div class="container d-flex align-items-center">
+    <a href="index.html" class="logo me-auto"><img src="{% static 'img/logo.jpg' %}" alt=""></a>
+    <nav id="navbar" class="navbar order-last order-lg-0">
+      <ul>
+        <li><a class="nav-link scrollto" href="{% url 'UserHome' %}">Home</a></li>
+        <li><a class="nav-link scrollto" href="{% url 'UploadTextAction' %}">Prediction</a></li>
+        <li><a class="nav-link scrollto" href="{% url 'UserViewHistory' %}">About Us</a></li>
+        <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+      </ul>
+    </nav><!-- .navbar -->
+  </div>
+</header><!-- End Header -->
+
+
+  
+   <!-- ======= Hero Section ======= -->
+   <section id="hero">
+    <div class="container">
+      <div class="row">
+        <!-- Carousel Column -->
+        <div class="col-lg-8">
+          <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></li>
+              <li data-bs-target="#heroCarousel" data-bs-slide-to="1"></li>
+              <!-- Add more indicators if needed -->
+            </ol>
+            <div class="carousel-inner">
+              <!-- Slide 1 -->
+              <div class="carousel-item active">
+                <img src="{% static 'img/slide/slide-1.jpg' %}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Welcome to Cardiovascular Disease Prediction</h5>
+                  <p>Predicting CVD for better healthcare</p>
+                </div>
+              </div>
+              <!-- Slide 2 -->
+              <div class="carousel-item">
+                <img src="{% static 'img/slide/slide-2.jpg' %}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Understanding Heart Health</h5>
+                  <p>Empowering individuals with knowledge about heart health</p>
+                </div>
+              </div>
+              <!-- Add more slides as needed -->
+            </div>
+            <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  <!-- ======= Articles Section ======= -->
+  <section id="articles">
+    <div class="container">
+      <h2 class="section-title">Articles on Cardiovascular Disease (CVD)</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <img src="{% static 'img/article1.jpg' %}" class="card-img-top" alt="Article 1">
+            <div class="card-body">
+              <h5 class="card-title">Understanding about Cardiovascular Disease (CVD) </h5>
+              <p class="card-text">Cardiovascular diseases (CVDs) are a group of disorders of the heart and blood vessels. They include: coronary heart disease, cerebrovascular disease, peripheral arterial disease, rheumatic heart disease, congenital heart disease, deep vein thrombosis, and pulmonary embolism.</p>
+              <a href="https://my.clevelandclinic.org/health/diseases/21493-cardiovascular-disease" class="btn btn-primary read-more-btn">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <img src="{% static 'img/article2.jpg' %}" class="card-img-top" alt="Article 2">
+            <div class="card-body">
+              <h5 class="card-title">Preventing Cardiovascular Disease: Tips and Strategies</h5>
+              <p class="card-text">There are many things you can do to reduce your risk for heart disease and stroke, such as knowing your risk, not smoking, eating a heart-healthy diet, maintaining a healthy weight, exercising regularly, limiting alcohol intake, getting regular check-ups, and managing your blood pressure, cholesterol, and diabetes.</p>
+              <a href="https://www.nhs.uk/conditions/coronary-heart-disease/prevention/" class="btn btn-primary read-more-btn">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="additional-content" style="display: none;">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <img src="{% static 'img/article3.jpg' %}" class="card-img-top" alt="Article 3">
+              <div class="card-body">
+                <h5 class="card-title">Risk Factors for Cardiovascular Disease</h5>
+                <p class="card-text">There are many risk factors for cardiovascular disease, including age, gender, genetics, smoking, high blood pressure, high cholesterol, diabetes, obesity, poor diet, physical inactivity, excessive alcohol consumption, stress, family history of heart disease, sleep apnea, chronic kidney disease, autoimmune conditions, air pollution exposure, mental health disorders.</p>
+                <a href="https://ada.com/cardiovascular-disease-risk-factors/" class="btn btn-primary read-more-btn">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <img src="{% static 'img/article4.jpg' %}" class="card-img-top" alt="Article 4">
+              <div class="card-body">
+                <h5 class="card-title">Treatment Options for Cardiovascular Disease</h5>
+                <p class="card-text">Treatment options for cardiovascular disease include lifestyle changes, medication, and surgery. Lifestyle changes include quitting smoking, eating a healthy diet, exercising regularly, and managing stress. Medications may be prescribed to lower blood pressure, cholesterol, or blood sugar levels. In some cases, surgery may be necessary to open blocked arteries or repair damaged heart valves.</p>
+                <a href="https://ada.com/cardiovascular-disease-risk-factors/" class="btn btn-primary read-more-btn">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <button class="btn btn-primary show-more-btn">Show More</button>
+      </div>
+    </div>
+  </section><!-- End Articles Section -->
+  <!-- ======= Latest News Section ======= -->
+<section id="latest-news" class="latest-news">
+  <div class="container">
+    <div class="section-title">
+      <h2>Latest News</h2>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="news-item">
+          <img src="{% static 'img/news1.jpg' %}" class="news-img" alt="News 1">
+          <h3>Study Finds New Link Between Diet and Heart Health</h3>
+          <p>A recent study published in the Journal of Cardiology reveals surprising insights into the relationship between diet and cardiovascular disease risk.</p>
+          <a href="https://www.indiatoday.in/health/story/study-finds-these-6-foods-essential-to-reduce-heart-diseases-2429560-2023-09-01" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="news-item">
+          <img src="{% static 'img/news2.png' %}" class="news-img" alt="News 2">
+          <h3>New Guidelines for Managing Hypertension Released</h3>
+          <p>The American Heart Association has issued updated guidelines for the diagnosis and treatment of hypertension, emphasizing the importance of lifestyle.</p>
+          <a href="https://www.who.int/news-room/fact-sheets/detail/hypertension/?gad_source=1&gclid=CjwKCAjw48-vBhBbEiwAzqrZVDWzEWnomAkm6v1PAhMxyco_cUJQ7aP0UoDv_Lx62yAEon_q4L1lmxoCy0cQAvD_BwE" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="news-item">
+          <img src="{% static 'img/news3.png' %}" class="news-img" alt="News 3">
+          <h3>Heart Health Awareness Month: Tips for a Healthy Heart</h3>
+          <p>February is Heart Health Awareness Month! Learn how to protect your heart and reduce your risk of cardiovascular disease with these helpful tips.</p>
+          <a href="https://health.gov/myhealthfinder/health-conditions/heart-health/keep-your-heart-healthy" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End Latest News Section -->
+
+
+
+
+<!-- ======= FAQ Section ======= -->
+<section id="faq" class="faq">
+  <div class="container">
+    <div class="section-title">
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="accordion" id="faqAccordion">
+      <!-- Question 1 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Question 1: What are the risk factors for cardiovascular disease?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            The major risk factors for cardiovascular disease include high blood pressure, high cholesterol, smoking, obesity, diabetes, and a sedentary lifestyle.
+          </div>
+        </div>
+      </div>
+      <!-- Question 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Question 2: How can I reduce my risk of heart disease?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            You can reduce your risk of heart disease by maintaining a healthy diet, exercising regularly, avoiding smoking, managing stress, and getting regular check-ups with your doctor.
+          </div>
+        </div>
+      </div>
+      <!-- Question 3 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Question 3: What are some heart-healthy foods?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Heart-healthy foods include fruits, vegetables, whole grains, lean proteins, and sources of healthy fats such as avocados, nuts, and olive oil.
+          </div>
+        </div>
+      </div>
+      <!-- Question 4 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Question 4: What are the symptoms of a heart attack?
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Symptoms of a heart attack may include chest pain or discomfort, shortness of breath, nausea, lightheadedness, cold sweats, and pain or discomfort in other areas of the upper body such as the arms, back, neck, or jaw.
+          </div>
+        </div>
+      </div>
+      <!-- Question 5 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            Question 5: How often should I have my cholesterol checked?
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            It is recommended to have your cholesterol checked at least once every five years, starting at age 20. However, your doctor may recommend more frequent testing if you have risk factors for heart disease or if your cholesterol levels are not within the normal range.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End FAQ Section -->
+
+
+<section id="resource-library" class="resource-library">
+  <div class="container">
+    <div class="section-title">
+      <h2>Resource Library</h2>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="resource-item">
+          <img src="{% static 'img/resource2.png' %}" class="resource-img" alt="Resource 2">
+          <h3>Exercise Guides</h3>
+          <p>Discover a variety of exercise guides tailored to improve cardiovascular health and overall fitness levels.</p>
+          <a href="https://www.heartandstroke.ca/articles/exercising-when-you-have-heart-disease" class="btn btn-primary">View Exercises</a>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="resource-item">
+          <img src="{% static 'img/resource1.jpg' %}" class="resource-img" alt="Resource 1">
+          <h3>Heart-Healthy Recipes</h3>
+          <p>Explore our collection of delicious and nutritious recipes designed to promote heart health and wellness.</p>
+          <a href="https://www.mayoclinic.org/healthy-lifestyle/recipes/heart-healthy-recipes/rcs-20077163" class="btn btn-primary">View Recipes</a>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="resource-item">
+          <img src="{% static 'img/resource3.png' %}" class="resource-img" alt="Resource 3">
+          <h3>Wellness Articles</h3>
+          <p>Access a wealth of informative articles covering topics related to heart health, nutrition, stress management, and more.</p>
+          <a href="https://globalwellnessinstitute.org/wellnessevidence/?gad_source=1&gclid=CjwKCAjw48-vBhBbEiwAzqrZVLrvEmauV4Rs0NnPJBI6yxakko7Wzs5T7dYjTiav9B_BvV2oFmgkghoCtHwQAvD_BwE" class="btn btn-primary">Read Articles</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<footer id="footer" style="background-color: whitesmoke;">
+  <div class="container">
+    <div class="row justify-content-center"> <!-- Center align the content -->
+      <div class="col-lg-4">
+        <h4>Contact Us</h4>
+        <p>
+          Address: Medchal, Hyderabad<br>
+          Phone: +91 9345667223<br>
+          Email: 2005k2.sharanya@gmail.com<br>
+        </p>
+      </div>
+
+      <div class="col-lg-4">
+        <h4>Useful Links</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="UserViewHistory.html">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-4">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-4">
+    <div class="credits">
+      Designed by <a href="https://bootstrapmade.com/">BATCH 61</a>
+    </div>
+  </div>
+</footer><!-- End Footer -->
+
+<!-- ======= Call-to-Action Section ======= -->
+<section id="cta" class="cta">
+  <div class="container">
+    <div class="text-center">
+      <h3>Take Action Now!</h3>
+      <p>Sign up for our service to receive personalized recommendations for managing your cardiovascular health.</p>
+      <a class="cta-btn" href="UserRegister.html">Sign Up</a>
+    </div>
+  </div>
+</section><!-- End Call-to-Action Section -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+<script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+
+<!-- Template Main JS File -->
+<script src="{% static 'js/main.js' %}"></script>
+
+<!-- Custom JS -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Show more button functionality
+    document.querySelector('.show-more-btn').addEventListener('click', function() {
+      document.querySelector('.additional-content').style.display = 'block';
+      this.style.display = 'none';
+    });
+    // Read more button functionality
+    document.querySelectorAll('.read-more-btn').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        // You can replace '#' with the actual article link
+        window.open('#', '_blank');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>  
