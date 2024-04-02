@@ -4,7 +4,7 @@ This project aims to predict the likelihood of cardiovascular disease using mach
 # Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-# Prerequisites
+## Prerequisites
 Install Python if you haven't already. 
 Install Django framework using pip: 
       pip install django. 
