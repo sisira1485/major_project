@@ -1,5 +1,4 @@
-# major_project
-Cardiovascular Disease Prediction
+# Cardiovascular Disease Prediction
 This project aims to predict the likelihood of cardiovascular disease using machine learning algorithms.
 
 > Getting Started
