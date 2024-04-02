@@ -14,6 +14,6 @@ These instructions will get you a copy of the project up and running on your loc
 ### This command starts the development server, allowing you to view and interact with your Django application locally by visiting http://127.0.0.1:8000/ or http://localhost:8000/ in your web browser.
 
 ## Built With
-Python - Programming language
-Django - Web framework
+Python - Programming language , 
+Django - Web framework , 
 Machine Learning Libraries (e.g., scikit-learn, TensorFlow, etc.) - Used for building predictive models
