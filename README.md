@@ -1,8 +1,6 @@
 # Cardiovascular Disease Prediction Using Machine Learning Algorithms
 This project aims to predict the likelihood of cardiovascular disease using machine learning algorithms.
 
-#How to run
-
 ### Prerequisites
 ### Install Python if you haven't already. 
 ### Install Django framework using pip: 
